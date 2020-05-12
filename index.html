@@ -19,16 +19,32 @@
 <body>
   <!-- dark theme bar -->
     <nav>
-    <div class="theme-switch-wrapper">
-         <label class="theme-switch" for="checkbox">
-      <input type="checkbox" id="checkbox" />
-      <div class="slider round"></div>
-    </label>
-      <em>Enable Dark Mode!</em>
-    </div>
-  
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+        <input type="checkbox" id="checkbox" />
+        <div class="slider round"></div>
+        </label>
+        <em>Enable Dark Mode!</em>
+        </div>
+    </nav>
+
+    <script>
+       function checktheme() {
+        //alert(location.href.split("/").slice(-1));      
+        if(window.location.pathname.split("/").pop() !== location.href.split("/").slice(-1)){
+                value = localStorage["key"];
+                document.documentElement.setAttribute('data-theme',value)
+                if (currentTheme === 'dark') {
+                    toggleSwitch.checked = true;
+                }
+                else{
+                    toggleSwitch.checked = false;
+                }
+            }
+        }
+    </script>
+
   <!-- main nav bar -->
-  </nav> 
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <a class="navbar-brand" href="#">Islam</a>
       
@@ -107,7 +123,7 @@
                     <div class="card-body">
                     <h5 class="card-title">Library</h5>
                     </div>
-                    <a href="#./Projects/Library.html" class="card-link" style="color: greenyellow;">Library link</a>
+                    <a href="../Projects/Library.html" class="card-link" style="color: greenyellow;">Details</a>
                 </div>
                 <div class="card text-white bg-secondary text-center display:flex m-3" style="max-width: 18rem;">
                     <img id="img2" class="card-img-top" src="./images/Full_stack_team_web.JPG" alt="picture of Project2">
@@ -115,7 +131,7 @@
                     <div class="card-body">
                     <h5 class="card-title">Website</h5>
                     </div>
-                    <a href="#./Projects/Web1.html" class="card-link" style="color: greenyellow;">Web link</a>
+                    <a href="../Projects/Web.html" class="card-link" style="color: greenyellow;">Details</a>
                 </div>
                 <div class="card text-white bg-success display:flex m-3" style="max-width: 18rem;">
                     <img id="img3" class="card-img-top" src="./images/ballBounce_openGL.JPG" alt="picture of Project3">
@@ -123,7 +139,7 @@
                     <div class="card-body">
                     <h5 class="card-title">Ball Bounce</h5>
                     </div>
-                    <a href="#./Projects/Bounce.html" class="card-link" style="color: greenyellow;">Bounce link</a>
+                    <a href="../Projects/Bounce.html" class="card-link" style="color: greenyellow;">Details</a>
                 </div>
                 <div class="card text-white bg-danger display:flex m-3" style="max-width: 18rem;">
                     <img id="img4" class="card-img-top" src="./images/skater_openGL.JPG" alt="picture of Project4">
@@ -131,7 +147,7 @@
                     <div class="card-body">
                     <h5 class="card-title">Ice-Skater</h5>
                     </div>
-                    <a href="#./Projects/Ice-Skater.html" class="card-link" style="color: greenyellow;">Skater link</a>
+                    <a href="../Projects/Ice-Skater.html" class="card-link" style="color: greenyellow;">Details</a>
                 </div>
                 <div class="card text-white bg-warning display:flex m-3" style="max-width: 18rem;">
                 <div class="card-header">Header</div>
@@ -171,6 +187,7 @@
             <div class="box">
             <h3 class="content-title">Contact Me</h3>
             
+            <!-- send message to email -->
             <script src="https://smtpjs.com/v3/smtp.js"></script>  
             <form>
                 Name (optional):<br>
@@ -221,6 +238,7 @@
             <p4> Mobile:  +(2)01119988448</p4>
             <i class="fa fa-whatsapp" style="font-size:36px;color:green;padding-left: 0.4em;"></i>
             </div>
+            <!-- email address to send email -->
             <h6 style="padding-top: 0.5em;">Email: </h6>
             <form action="mailto:islamsweify@gmail.com" method="post" enctype="text/plain">
                 <input type="submit1" value="IslamSweify@gmail.com">
@@ -251,7 +269,7 @@
             localStorage.setItem('theme', 'light');
         }    
     }
-
+    localStorage["key"] = localStorage.getItem('theme')
     toggleSwitch.addEventListener('change', switchTheme, false);
 </script>
 </body>

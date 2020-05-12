@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Projects</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="style.css">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="library_style.css">
+    
+</head>
+<body>
+  <!-- dark theme bar -->
+  <nav>
+    <div class="theme-switch-wrapper">
+         <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox" />
+      <div class="slider round"></div>
+    </label>
+      <em>Enable Dark Mode!</em>
+    </div>
+
+    <script>
+   function checktheme() {
+        if(window.location.pathname.split("/").pop() !== location.href.split("/").slice(-1)){
+                value = localStorage["key"];
+                document.documentElement.setAttribute('data-theme',value)
+                if (value === 'dark') {
+                    toggleSwitch.checked = true;
+                }
+            }
+        }
+   </script>
+
+
+  </nav>  
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <a class="navbar-brand" href="../index.html">Islam</a>
+      
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html#Projects" id="view-Projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html#Contact" id="view-Contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <section id="Project-details">
+        <div class="container">
+                <img src="../images/Mobile_lib.JPG" class="img-fluid" alt="project image">
+            
+                <p1> Used Android Studio, NodeJS and MongoDB to implement a library project. Where there are two phases
+                     for in the application. Users phase where they view available items of the library and select items 
+                    to buy and place to obtain their selected items, and an Admin phase where an admin can add new items 
+                    to list for users and update available quantity in stock (quantity selected by users automatically 
+                    subtracted from the quantity in the database so the admin will update if new quantities arrived. Also,
+                     admin can view all users, update their purchases' state whether they paid or not yet. The project was 
+                     a course project and implemented individually. Got a grade of A in that course. </p1>
+
+                <a href="https://github.com/Islam98/Portfolio/tree/master/GUC-Library" style="color: hotpink;"> Project on Github </a>
+            </div>
+     </section>
+
+     <script>
+     const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+     const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+  
+    if (currentTheme === 'dark') {
+        toggleSwitch.checked = true;
+    }
+}
+
+function switchTheme(e) {
+    if (e.target.checked) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    }
+    else {        document.documentElement.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+    }    
+}
+localStorage["key"] = localStorage.getItem('theme')
+toggleSwitch.addEventListener('change', switchTheme, false);
+</script>
+</body>
+
+</html>
+

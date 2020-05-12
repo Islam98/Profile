@@ -24,8 +24,8 @@
    --bg-color: #333;
    --h-rgba: rgba(255, 255, 255, 0.808);
    --p-rgba: rgb(255, 255, 255, 0.908);
-   --projects-background: #333;
-   --projects-color:#333;
+   --projects-background: rgba(4, 5, 4, 0.288);
+   --projects-color:rgba(51, 51, 51, 0.603);
    --h2-color: #e1e1ff;
 }
 
@@ -58,6 +58,26 @@ p1,p2,p3 {
   text-align: center;
   color: var(--p-rgba);
   margin: 0;
+  padding: 0.5em 0;
+}
+
+p4 {
+  text-align: center;
+  color: var(--p-rgba);
+  margin-left: 0.5rem;
+}
+
+input[type="submit1"] {
+  background-color: transparent;
+  border: transparent;
+}
+
+input[type="submit1"]:hover{
+  background-color:green;
+}
+
+whatsapp {
+  color: green;
   padding: 0.5em 0;
 }
 
@@ -104,8 +124,13 @@ h2 {
     }
 }
 
-
-
+/*
+.card-img-top {
+  width: 18rem;
+  height: 18rem;
+  object-fit: cover;
+}
+*/
 
 
 

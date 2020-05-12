@@ -11,11 +11,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     
 </head>
 <body>
+  <!-- dark theme bar -->
     <nav>
     <div class="theme-switch-wrapper">
          <label class="theme-switch" for="checkbox">
@@ -25,6 +27,7 @@
       <em>Enable Dark Mode!</em>
     </div>
   
+  <!-- main nav bar -->
   </nav> 
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <a class="navbar-brand" href="#">Islam</a>
@@ -39,15 +42,39 @@
               <a class="nav-link" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#Projects">Projects</a>
+              <a class="nav-link" href="#Projects" id="view-Projects">Projects</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#Contact">Contacts</a>
+              <a class="nav-link" href="#Contact" id="view-Contact">Contact</a>
             </li>
           </ul>
         </div>
       </nav>
 
+      <!-- Smooth navigation for contact and projects -->
+      <script>
+        $('#view-Contact').on('click', function() {
+        const Contacts = $('#Contact').position().top;
+
+        $('html, body').animate(
+            {
+            scrollTop: Contacts
+            },
+            900
+        );
+        });
+
+        $('#view-Projects').on('click', function() {
+        const Projects = $('#Projects').position().top;
+
+        $('html, body').animate(
+            {
+            scrollTop: Projects
+            },
+            900
+        );
+        });
+    </script>
 
       <!-- ABOUT SECTION -->
       <section id="About">
@@ -74,33 +101,37 @@
                 <h2>Projects</h2>
             </div>
             <div class="row justify-content-center">
-                <div class="card text-white bg-primary text-center display:flex m-3" style="max-width: 18rem;">
-                    <div class="card-header">Header</div>
+                <div class="card text-white bg-primary text-center display:flex m-3" style="max-width: 18rem;" href>
+                    <img id="img1" class="card-img-top" src="./images/Mobile_lib.JPG" alt="picture of Project1">
+                            
                     <div class="card-body">
-                    <h5 class="card-title">Primary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title">Library</h5>
                     </div>
+                    <a href="#./Projects/Library.html" class="card-link" style="color: greenyellow;">Library link</a>
                 </div>
                 <div class="card text-white bg-secondary text-center display:flex m-3" style="max-width: 18rem;">
-                    <div class="card-header">Header</div>
+                    <img id="img2" class="card-img-top" src="./images/Full_stack_team_web.JPG" alt="picture of Project2">
+                            
                     <div class="card-body">
-                    <h5 class="card-title">Secondary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title">Website</h5>
                     </div>
+                    <a href="#./Projects/Web1.html" class="card-link" style="color: greenyellow;">Web link</a>
                 </div>
                 <div class="card text-white bg-success display:flex m-3" style="max-width: 18rem;">
-                    <div class="card-header">Header</div>
+                    <img id="img3" class="card-img-top" src="./images/ballBounce_openGL.JPG" alt="picture of Project3">
+                            
                     <div class="card-body">
-                    <h5 class="card-title">Success card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <h5 class="card-title">Ball Bounce</h5>
                     </div>
+                    <a href="#./Projects/Bounce.html" class="card-link" style="color: greenyellow;">Bounce link</a>
                 </div>
                 <div class="card text-white bg-danger display:flex m-3" style="max-width: 18rem;">
-                <div class="card-header">Header</div>
-                <div class="card-body">
-                    <h5 class="card-title">Danger card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
+                    <img id="img4" class="card-img-top" src="./images/skater_openGL.JPG" alt="picture of Project4">
+                            
+                    <div class="card-body">
+                    <h5 class="card-title">Ice-Skater</h5>
+                    </div>
+                    <a href="#./Projects/Ice-Skater.html" class="card-link" style="color: greenyellow;">Skater link</a>
                 </div>
                 <div class="card text-white bg-warning display:flex m-3" style="max-width: 18rem;">
                 <div class="card-header">Header</div>
@@ -139,35 +170,89 @@
         <div class="container">
             <div class="box">
             <h3 class="content-title">Contact Me</h3>
-            <p2>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum, suscipit. Rerum ducimus a quod, ut et voluptas obcaecati unde fuga.</p2>
-            <p class="text-sm-left text-info"> islamsweify@gmail.com </p>
+            
+            <script src="https://smtpjs.com/v3/smtp.js"></script>  
+            <form>
+                Name (optional):<br>
+                <input type="text" id="name"><br>
+                E-mail (optional):<br>
+                <input type="text" id="mail"><br>
+                Message:<br>
+                <input type="text" id="message"><br><br>
+                <input type="submit" value="Send" onclick="sendEmail()">
+                <input type="reset" value="Reset">
+            </form>
+            <script>
+                function sendEmail() {
+                    if(document.getElementById("name") && document.getElementById("name").value)
+                    {
+                        name = document.getElementById('name').value
+                    }
+                    else{
+                        name = 'unknown'
+                    }
+                    if(document.getElementById("mail") && document.getElementById("mail").value && document.getElementById("mail").value.includes("@"))
+                    {
+                        email = document.getElementById('mail').value
+                    }
+                    else{
+                        email = 'unknown@null.zero'
+                    }
+                    if(document.getElementById("message") && document.getElementById("message").value)
+                    {
+                        message = document.getElementById('message').value
+                    }
+                    else{
+                        message = 'empty message'
+                    }
+                    Email.send({
+                    SecureToken : "8b7dcb78-22e7-48aa-bfdc-d5c39d0ad543",
+                    To : 'islamomar18@yahoo.com',
+                    From : email,
+                    Subject : "New message from " + name,
+                    Body : message
+                    }).then(
+                        message => alert("mail sent successfully")
+                    );
+                }
+            </script>
+            
+            <div class="number">
+            <p4> Mobile:  +(2)01119988448</p4>
+            <i class="fa fa-whatsapp" style="font-size:36px;color:green;padding-left: 0.4em;"></i>
+            </div>
+            <h6 style="padding-top: 0.5em;">Email: </h6>
+            <form action="mailto:islamsweify@gmail.com" method="post" enctype="text/plain">
+                <input type="submit1" value="IslamSweify@gmail.com">
+            </form>
+
             </div>
         </div>
       </section>
 
 <script>
     const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
-const currentTheme = localStorage.getItem('theme');
+    const currentTheme = localStorage.getItem('theme');
 
-if (currentTheme) {
-    document.documentElement.setAttribute('data-theme', currentTheme);
-  
-    if (currentTheme === 'dark') {
-        toggleSwitch.checked = true;
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+    
+        if (currentTheme === 'dark') {
+            toggleSwitch.checked = true;
+        }
     }
-}
 
-function switchTheme(e) {
-    if (e.target.checked) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
+    function switchTheme(e) {
+        if (e.target.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+        else {        document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+        }    
     }
-    else {        document.documentElement.setAttribute('data-theme', 'light');
-          localStorage.setItem('theme', 'light');
-    }    
-}
 
-toggleSwitch.addEventListener('change', switchTheme, false);
+    toggleSwitch.addEventListener('change', switchTheme, false);
 </script>
 </body>
 

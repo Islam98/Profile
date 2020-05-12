@@ -1,5 +1,5 @@
 # Profile
-This repo is for the portfolio mobile first task using front-end.
+This repo is for the portfolio mobile first task.
 
 = You can download repo and simply use the index.html as the start main(home) page, then navigate to either projects or contacts.
 

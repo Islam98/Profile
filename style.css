@@ -8,9 +8,9 @@
   --bg-color: #fff;
   --h-rgba: rgba(0, 0, 0, 0.808);
    --p-rgba: rgb(0, 0, 0, 0.908);
-   --projects-background: rgb(102,102,102);
+   --projects-background: rgb(208,208,180);
    --projects-color:rgb(180,180,180);
-   --h2-color: color: rgb(102,102,102);
+   --h2-color: rgba(0, 0, 0, 0.808);
    /**/
    --primary-color: #302AE6;
     --secondary-color: #536390;
@@ -26,7 +26,7 @@
    --p-rgba: rgb(255, 255, 255, 0.908);
    --projects-background: #333;
    --projects-color:#333;
-   --h2-color: color: #333;
+   --h2-color: #e1e1ff;
 }
 
 body {
